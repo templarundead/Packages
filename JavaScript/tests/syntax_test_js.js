@@ -375,6 +375,12 @@ x ? y // y is a template tag!
 `template` : z;
 //         ^ keyword.operator.ternary
 
+    1``
+    /a/;
+//  ^^^ - string
+//  ^ keyword.operator.arithmetic
+//    ^ keyword.operator.arithmetic
+
 mylabel:
 // ^ entity.name.label
 //     ^ punctuation.separator
@@ -610,6 +616,10 @@ do {
 // ^^^^ keyword.control.loop
 //      ^^^^^^^^ meta.group
 
+do // Incomplete statement
+    42;
+//  ^^ constant.numeric - meta.do-while
+
 for (var i = 0; i < 10; i++) {
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.for
 //   ^^^^^^^^^^^^^^^^^^^^^^ meta.group
@@ -626,6 +636,10 @@ for (var i = 0; i < 10; i++) {
     for await (const x of list) {}
 //  ^^^ keyword.control.loop
 //      ^^^^^ keyword.control.loop
+
+for
+    42;
+//  ^^ constant.numeric - meta.for
 
 while (true)
 // ^^^^^^^^^ meta.while
@@ -658,9 +672,35 @@ while (true)
 //            ^^^^^ keyword.control.flow
 
     break;
-//  ^^^^^^ meta.while meta.block
+//  ^^^^^ keyword.control.loop
+
+    break foo;
+//  ^^^^^ keyword.control.loop
+//        ^^^ variable.label
+
+    break
+    foo;
+//  ^^^ variable.other.readwrite - variable.label
+
+    continue;
+//  ^^^^^^^^ keyword.control.loop
+
+    continue foo;
+//  ^^^^^^^^ keyword.control.loop
+//           ^^^ variable.label
+
+    continue
+    foo;
+//  ^^^ variable.other.readwrite - variable.label
+
+    goto;
+//  ^^^^ variable.other.readwrite - keyword
 }
 // <- meta.block
+
+while // Incomplete statement
+    42;
+//  ^^ constant.numeric - meta.while
 
 with (undefined) {
 // <- keyword.control.with
@@ -668,6 +708,10 @@ with (undefined) {
 //    ^^^^^^^^^ constant.language.undefined
     return;
 }
+
+with // Incomplete statement
+    42;
+//  ^^ constant.numeric - meta.while
 
 switch ($foo) {
 // ^^^^^^^^^^^^ meta.switch
@@ -697,6 +741,10 @@ switch ($foo) {
     default$
 //  ^^^^^^^^ - keyword
     ;
+
+    case 0: {}
+    case 1:
+//  ^^^^ keyword.control.switch
 }
 // <- meta.block punctuation.section.block.end
 
@@ -721,6 +769,10 @@ try {
 //  ^^^^^^^^^^^ meta.finally meta.block
 }
 // <- meta.block
+
+switch // Incomplete statement
+    42;
+//  ^^ constant.numeric - meta.switch
 
 class MyClass extends TheirClass {
 // <- storage.type.class
@@ -913,6 +965,9 @@ class MyClass extends TheirClass {
     async foo() {}
 //  ^^^^^ storage.type
 
+    *foo() {}
+//  ^ keyword.generator.asterisk
+
     static async foo() {}
 //         ^^^^^ storage.type
 }
@@ -948,6 +1003,15 @@ Bar {}
 
 class Foo extends getSomeClass() {}
 //                ^^^^^^^^^^^^ meta.function-call variable.function - entity.other.inherited-class
+
+    (class extends Bar {});
+//         ^^^^^^^ storage.modifier.extends - entity.name.class
+
+    (class extends class {} {});
+//   ^^^^^^^^^^^^^^^^^^^^^^^^^ meta.class
+//         ^^^^^^^ storage.modifier.extends
+//                 ^^^^^^^^ meta.class meta.class
+//                 ^^^^^ storage.type.class
 
     () => {}
 //  ^^^^^^^^ meta.function - meta.function meta.function
@@ -1133,6 +1197,7 @@ func(a, b);
 //       ^ punctuation.section.group.end
 
 var instance = new Constructor(param1, param2)
+//                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.function-call.constructor
 //                 ^^^^^^^^^^^ variable.type
 //                            ^^^^^^^^^^^^^^^^ meta.group
 //                            ^ punctuation.section.group.begin
@@ -1174,15 +1239,16 @@ var Constructor = function() {
 // Tests to ensure the new keyword is highlighted properly even when the
 // following element is not an identifier
 var abc = new ABC(
-//         ^ meta.instance.constructor keyword.operator.word.new
-//               ^ meta.instance.constructor meta.function-call.constructor
-//               ^ - meta.instance.constructor meta.instance.constructor
+//        ^^^ keyword.operator.word.new
+//            ^^^^ meta.function-call.constructor
+//        ^^^^^^^^ - meta.instance.constructor
     'my-name-is-abc',
     new (function () {
-//  ^ meta.instance.constructor meta.function-call.constructor meta.instance.constructor keyword.operator.word.new
-//      ^ meta.instance.constructor meta.function-call.constructor meta.instance.constructor meta.function-call.constructor meta.group
+//  ^^^ keyword.operator.word.new
+//  ^^^^^^^^^^^^^^^^^^ - meta.instance.constructor
+//      ^^^^^^^^^^^^^^ meta.function-call.constructor meta.function-call.constructor meta.group
         var foo = 1;
-//      ^ meta.instance.constructor meta.function-call.constructor meta.instance.constructor meta.function-call.constructor meta.group meta.block
+//      ^^^^^^^^^^^^ meta.function-call.constructor meta.function-call.constructor meta.group meta.block
     })
 );
 
@@ -1200,10 +1266,9 @@ function f() {
 }
 
 new Date().getTime()
-// ^^^^^^^ meta.instance.constructor
 //  ^^^^^^ meta.function-call.constructor
 //  ^^^^ support.class.builtin
-//        ^^^^^^^^^^ - meta.instance.constructor
+//^^^^^^^^^^^^^^^^^^ - meta.instance.constructor
 
 new $();
 //  ^ variable.type.dollar.only punctuation.dollar
@@ -1315,6 +1380,14 @@ a = /\//u + 0;
 //     ^ keyword.operator
 //       ^ constant.numeric
 //         ^ keyword.operator
+
+    x
+    in y;
+//  ^^ keyword.operator
+
+    x
+    instanceof y;
+//  ^^^^^^^^^^ keyword.operator
 
 var π = 3.141592653
 //  ^ variable.other.readwrite

@@ -992,6 +992,10 @@ status="${status#${status%%[![:space:]]*}}"
 #                          ^ - punctuation
 #                            ^ - punctuation
 #                                    ^^ - punctuation
+CURPOS=${CURPOS#*[}
+#                ^ - keyword.control.regexp
+echo "${ROW#*[}"
+#            ^ - keyword.control.regexp
 echo *
 #    ^ keyword.operator.regexp.quantifier
 echo {a,g*}
@@ -2201,6 +2205,23 @@ function foo (     ) {
 # <- punctuation.section
 
 # <- - meta.function
+
+f () (
+# <- meta.function entity.name.function
+  #  ^ meta.function punctuation.definition.compound.begin
+  echo hello
+  # <- meta.function meta.function-call support.function.echo
+)
+# <- meta.function punctuation.definition.compound.end
+
+function f (
+  #    ^ meta.function storage.type.function
+  #      ^ meta.function entity.name.function
+  #        ^ meta.function punctuation.definition.compound.begin
+  echo hello
+  # <- meta.function meta.function-call support.function.echo
+)
+# <- meta.function punctuation.definition.compound.end
 
 function foo {
     # <- meta.function
