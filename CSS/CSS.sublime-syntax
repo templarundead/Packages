@@ -56,7 +56,7 @@ variables:
   # https://drafts.csswg.org/css-counter-styles-3/#predefined-counters
   counter_styles: |-
     (?xi:
-        (?:l(?:ower-(?:(?:(?:norwegi|rom)a|lati)n|a(?:rmenian|lpha)|hexadecimal|greek)|ao)|c(?:jk-(?:earthly-branch|heavenly-stem|ideographic|decimal)|ambodian|ircle)|d(?:e(?:cimal(?:-leading-zero)?|vanagari)|isc(?:losure-(?:closed|open))?)|k(?:orean-han(?:ja-(?:in)?|gul-)formal|a(?:takan(?:a-iroh)?|nnad)a|hmer)|upper-(?:(?:(?:norwegi|rom)a|lati)n|a(?:rmenian|lpha)|hexadecimal|greek)|t(?:(?:rad-chinese-(?:in)?forma|ami)l|ibetan|elugu|hai)|a(?:r(?:abic-indic|menian)|sterisks)|s(?:imp-chinese-(?:in)?formal|quare)|g(?:u(?:jarat|rmukh)i|eorgian)|h(?:iragan(?:a-iroh)?a|ebrew)|m(?:alayalam|ongolian|yanmar)|japanese-(?:in)?formal|b(?:engali|ynary)|ethiopic-numeric|persian|oriya|none)
+      (?:a(?:r(?:abic-indic|menian)|sterisks)|b(?:engali|ynary)|c(?:ambodian|ircle|jk-(?:decimal|earthly-branch|heavenly-stem|ideographic))|d(?:e(?:cimal(?:-leading-zero)?|vanagari)|isc(?:losure-(?:closed|open))?)|ethiopic-numeric|g(?:eorgian|u(?:jarat|rmukh)i)|h(?:ebrew|iragana(?:-iroha)?)|japanese-(?:in)?formal|k(?:a(?:nnad|takan(?:a-iroh)?)a|hmer|orean-han(?:gul-|ja-(?:in)?)formal)|l(?:ao|ower-(?:a(?:lpha|rmenian)|greek|hexadecimal|latin|norwegian|roman))|m(?:alayalam|ongolian|yanmar)|none|oriya|persian|s(?:imp-chinese-(?:in)?formal|quare)|t(?:amil|elugu|hai|ibetan|rad-chinese-(?:in)?formal)|upper-(?:a(?:lpha|rmenian)|greek|hexadecimal|latin|norwegian|roman))
     )
 
 contexts:
@@ -85,10 +85,10 @@ contexts:
   color-values:
     - include: color-functions
       # https://www.w3.org/TR/CSS22/syndata.html#color-units
-    - match: \b((?:(?:o(?:rang|liv)|purpl|whit|lim)e|(?:fuchsi|aqu)a|bl(?:ack|ue)|gr(?:een|ay)|maroon|silver|yellow|navy|teal|red))\b
+    - match: \b((?:aqua|bl(?:ack|ue)|fuchsia|gr(?:ay|een)|lime|maroon|navy|o(?:liv|rang)e|purple|red|silver|teal|white|yellow))\b
       scope: support.constant.color.w3c-standard-color-name.css
       # https://www.w3.org/TR/css3-color/#svg-color
-    - match: \b((?:d(?:ark(?:s(?:late(?:gr[ae]y|blue)|(?:eagree|almo)n)|g(?:r(?:e(?:en|y)|ay)|oldenrod)|o(?:r(?:ange|chid)|livegreen)|(?:turquois|blu)e|magenta|violet|khaki|cyan|red)|eep(?:skyblue|pink)|imgr[ae]y|odgerblue)|l(?:i(?:ght(?:s(?:(?:eagree|almo)n|(?:teel|ky)blue|lategr[ae]y)|g(?:r(?:e(?:en|y)|ay)|oldenrodyellow)|c(?:oral|yan)|yellow|blue|pink)|(?:megre|n)en)|a(?:vender(?:blush)?|wngreen)|emonchiffon)|m(?:edium(?:(?:aquamarin|turquois|purpl|blu)e|s(?:(?:pring|ea)green|lateblue)|(?:violetre|orchi)d)|i(?:(?:dnightblu|styros)e|ntcream)|occasin|agenta)|s(?:(?:a(?:(?:ddle|ndy)brow|lmo)|pringgree)n|late(?:gr[ae]y|blue)|ea(?:green|shell)|(?:teel|ky)blue|ienna|now)|p(?:a(?:le(?:g(?:oldenrod|reen)|turquoise|violetred)|payawhip)|e(?:achpuff|ru)|owderblue|ink|lum)|c(?:(?:h(?:artreus|ocolat)|adetblu)e|or(?:n(?:flowerblue|silk)|al)|(?:rimso|ya)n)|b(?:l(?:anchedalmond|ueviolet)|(?:isqu|eig)e|urlywood|rown)|g(?:re(?:enyellow|y)|ol(?:denro)?d|hostwhite|ainsboro)|(?:a(?:ntiquewhit|quamarin|liceblu|zur)|navajowhit)e|o(?:l(?:ivedrab|dlace)|r(?:angere|chi)d)|r(?:o(?:sybrown|yalblue)|ebeccapurple)|f(?:loralwhite|orestgreen|irebrick)|t(?:(?:urquois|histl)e|omato|an)|i(?:ndi(?:anred|go)|vory)|ho(?:neydew|tpink)|wh(?:itesmoke|eat)|yellowgreen|violet|khaki))\b
+    - match: \b((?:a(?:liceblu|ntiquewhit|quamarin|zur)e|b(?:eige|isque|l(?:anchedalmond|ueviolet)|rown|urlywood)|c(?:adetblue|h(?:artreus|ocolat)e|or(?:al|n(?:flowerblue|silk))|rimson|yan)|d(?:ark(?:blue|cyan|g(?:oldenrod|r(?:ay|e(?:en|y)))|khaki|magenta|o(?:livegreen|r(?:ange|chid))|red|s(?:almon|eagreen|late(?:blue|gr[ae]y))|turquoise|violet)|eep(?:pink|skyblue)|imgr[ae]y|odgerblue)|f(?:irebrick|loralwhite|orestgreen)|g(?:ainsboro|hostwhite|old(?:enrod)?|re(?:enyellow|y))|ho(?:neydew|tpink)|i(?:ndi(?:anred|go)|vory)|khaki|l(?:a(?:vender(?:blush)?|wngreen)|emonchiffon|i(?:ght(?:blue|c(?:oral|yan)|g(?:oldenrodyellow|r(?:ay|e(?:en|y)))|pink|s(?:almon|eagreen|kyblue|lategr[ae]y|teelblue)|yellow)|megreen|nen))|m(?:agenta|edium(?:aquamarine|blue|orchid|purple|s(?:eagreen|lateblue|pringgreen)|turquoise|violetred)|i(?:dnightblue|ntcream|styrose)|occasin)|navajowhite|o(?:l(?:dlace|ivedrab)|r(?:angere|chi)d)|p(?:a(?:le(?:g(?:oldenrod|reen)|turquoise|violetred)|payawhip)|e(?:achpuff|ru)|ink|lum|owderblue)|r(?:ebeccapurple|o(?:sybrown|yalblue))|s(?:a(?:ddlebrow|lmo|ndybrow)n|ea(?:green|shell)|ienna|kyblue|late(?:blue|gr[ae]y)|now|pringgreen|teelblue)|t(?:an|histle|omato|urquoise)|violet|wh(?:eat|itesmoke)|yellowgreen))\b
       scope: support.constant.color.w3c-extended-color-keywords.css
       # Special Color Keywords
       # https://www.w3.org/TR/css3-color/#currentcolor
@@ -406,8 +406,8 @@ contexts:
   property-value-constants:
     - match: |-
             (?x)\b(
-                   (?:EndColorStr|a(?:b(?:ov|solut)e|ctive|dd(?:itive)?|fter-edge|l(?:ias|l-(?:petite-caps|s(?:croll|mall-caps))|pha(?:betic)?|ternate(?:-reverse|s)?|ways|l)|n(?:gle|notation|tialiased)|ttachment|uto(?:-pos|hiding-scrollbar)?|v(?:ailable|oid(?:-(?:column|page|region))?)|t)|b(?:a(?:ck(?:drop-filter|ground(?:-(?:color|image|position|size))?|wards)|lance|s(?:eline|is))|e(?:fore-edge|h(?:avior|ind)|low|vel)|i(?:cubic|di-override)|l(?:ink|ock(?:-(?:axis|end|line-height|start))?|ur)|o(?:ld(?:er)?|rder(?:-(?:bo(?:ttom(?:-(?:color|left-radius|r(?:ight-r)?adius|style|width))?|x)|col(?:lapse|or)|image(?:-(?:outset|repeat|s(?:li|our)ce|width))?|left(?:-(?:color|radius|style|width))?|r(?:adius|ight(?:-(?:color|radius|style|width))?)|s(?:pacing|tyle)|top(?:-(?:color|left-radius|r(?:ight-r)?adius|style|width))?|width))?|t(?:tom(?:-outside)?|h)|x-(?:decoration|image|shadow)|x)|r(?:eak-(?:all|word)|ightness)|u(?:llets|tt(?:on(?:-bevel)?)?))|c(?:a(?:p(?:italize|tion)|ret)|e(?:ll|nt(?:er(?:-(?:lef|righ)t)?|ral))|h(?:ar(?:acter-variant)?|eckbox)|ircle|jk-ideographic|l(?:ear|ip(?:-path)?|o(?:ne|se(?:-quote|st-(?:corner|side))))|o(?:de|l(?:-resize|lapse|or(?:-(?:burn|dodge|stop))?|umn(?:-(?:count|gap|r(?:everse|ule(?:-(?:color|width))?)|width)|s)?)|m(?:mon-ligatures|p(?:act|osite))|n(?:densed|sider-shifts|t(?:ain|e(?:nt(?:-box|s)?|xt(?:-menu|ual))|inuous|rast))|py|unt|ver)|r(?:isp(?:-e|E)dges|o(?:ss(?:hair)?|p))|ue-(?:after|before)|yclic)|d(?:a(?:rken|shed)|e(?:cimal|fault|nse|stination-(?:atop|in|o(?:ut|ver)))|i(?:agonal-fractions|fference|gits|s(?:abled|cretionary-ligatures|regard-shifts|tribute(?:-(?:all-lines|letter|space))?|c))|o(?:tted|uble(?:-circle)?|wn(?:lef|righ)t|t)|rop-shadow)|e(?:-resize|a(?:ch-line|s(?:e-(?:in(?:-out)?|out)|t-asian|e))|conomy|dges|l(?:ement|lips(?:is|e))|mbed|nd|venodd|w-resize|x(?:act|clu(?:de(?:-ruby)?|sion)|panded|t(?:ends|ra-(?:condens|expand)ed)))|f(?:a(?:llback|r(?:-(?:lef|righ)t|thest-(?:corner|side)?)|st(?:er)?)|i(?:l(?:l(?:-(?:available|box|opacity)|ed)|ter|l)|rst|t-content|xed)|l(?:at|ex(?:-(?:basis|direction|end|grow|s(?:hrink|tart)|wrap)|box)?|ip|o(?:od-color|w-root|w))|o(?:nt(?:-(?:s(?:ize(?:-adjust)?|tretch)|weight))?|rwards)|r(?:e(?:eze|quency)|om(?:-image)?)|ull-width)|g(?:e(?:neric-voice|o(?:metricPrecisio|rgia)n)|lyphs|r(?:a(?:bbing|dient|yscale|b)|id(?:-(?:column-gap|gap|height|row-gap))?|o(?:ove|w)))|h(?:a(?:n(?:ging|d)|rd-light)|e(?:ight|lp)|i(?:d(?:den|e)|gh(?:er|light)?|storical-(?:form|ligature)s)|orizontal(?:-tb)?|ue)|i(?:con|deograph(?:-(?:alpha|numeric|parenthesis|space)|ic)|mage|n(?:active|clude-ruby|finite|herit|itial|line(?:-(?:axis|b(?:lock|ox)|end|flex(?:box)?|grid|li(?:ne-height|st-item)|start|table))?|s(?:et|ide)|ter(?:-(?:character|ideograph|word)|sect)|vert|k)|solat(?:e-override|ion|e)|talic)|j(?:is(?:04|78|83|90)|ustify(?:-all)?)|k(?:annada|eep-all)|l(?:a(?:ndscape|rger?|st|yout)|e(?:ft(?:-side|wards)?|tter-spacing|vel)|i(?:g(?:atures|ht(?:e[nr]|ing-color))|n(?:e(?:-(?:edge|height|through)|ar(?:RGB|-gradient)?)|ing-nums|e)|st(?:-item|box|item))|o(?:cal|ose|ud|wer(?:case)?|w)|r-tb|tr|umin(?:ance|osity)|r)|m(?:a(?:in-size|n(?:datory|ipulation|ual)|r(?:gin(?:-(?:bo(?:ttom|x)|left|right|top))?|ker(?:-offset|s)?|quee)|sk(?:-(?:attachment|position|size))?|t(?:ch-(?:parent|source)|hematical)|x-(?:content|height|lines|size|width))|e(?:dium|nu(?:list(?:-(?:button|text(?:field)?))?)?|ssage-box)|i(?:ddle|n-(?:content|height|width)|ter|xed|x)|o(?:tion-(?:offset|rotation)|ve)|ultipl[ey])|n(?:-resize|arrower|e(?:-resize|arest-neighbor|sw-resize|ver|wspaper)|o(?:-(?:c(?:hange|l(?:ip|ose-quote)|o(?:mmon-ligatures|nte(?:nt|xtual)))|d(?:is(?:cretionary-ligatures|play)|rop)|historical-ligatures|open-quote|repeat|wrap)|n(?:zero|e)|rmal|t-allowed|wrap)|s-resize|um(?:bers|eric)|w(?:se)?-resize)|o(?:b(?:ject(?:-position|s)|lique)|ffset(?:-(?:after|before|end|start))?|ldstyle-nums|nce|p(?:acity|en(?:-quote)?|ti(?:mize(?:Legibility|Precision|Quality|Speed)|onal))|r(?:d(?:er|inal)|igin|naments)|ut(?:line(?:-(?:color|offset|width))?|s(?:et|ide))|ver(?:-edge|l(?:ay|ine))?)|p(?:a(?:dding(?:-(?:bo(?:ttom|x)|left|right|top))?|ge|int(?:ed)?|n(?:-(?:down|left|right|up|[xy])|ner)|use(?:-(?:after|before)|d))|e(?:rspective-origin|tite-caps)|ixelated|l(?:aintext|us-(?:dark|light)er)|o(?:inter|lygon|rtrait|sition)|r(?:e(?:-(?:line|wrap)|serve-3d)|o(?:g(?:id:DXImageTransform.Microsoft.(?:Alpha|Blur|Shadow|dropshadow|gradient)|ress(?:ive)?)|portional-(?:nums|width)|ximity)|e)|ush-button)|r(?:adi(?:al(?:-gradient)?|o)|e(?:ad-(?:only|write(?:-plaintext-only)?)|ct(?:angle|o)|gion|lative|move|p(?:eat(?:-[xy]|ing-(?:linear|radial)-gradient)?|laced)|set-size|ver(?:se|t))|i(?:dge|ght(?:-side|wards)?)|l-tb|o(?:und|w-(?:re(?:siz|vers)|severs)e|w)|tl|u(?:by(?:-(?:base(?:-container)?|container|text(?:-container)?))?|n(?:-in|ning))|l)|s(?:RGB|-resize|aturat(?:ion|e)|c(?:ale-down|r(?:een|oll(?:-(?:position|snap-(?:coordinate|destination))|bar(?:button-(?:down|left|right|up)|gripper-(?:horizont|vertic)al|t(?:humb-(?:horizont|vertic)|rack-(?:horizont|vertic))al)?)?))|e(?:-resize|archfield(?:-(?:cancel-butt|decorati|results-(?:butt|decorati))on)?|mi-(?:condens|expand)ed|p(?:arate|ia)|same)|h(?:ape-(?:image-threshold|margin|outside)|ow|rink)|i(?:deways(?:-(?:l(?:eft|r)|r(?:ight|l)))?|lent|mplified|ngle|ze)|l(?:ashed-zero|i(?:ce|de(?:r(?:-(?:horizont|vertic)|thumb-(?:horizont|vertic))al)?)|ow(?:er)?)|m(?:all(?:-cap(?:tion|s)|er)?|ooth)|nap|o(?:ft(?:-light)?|lid|urce-(?:atop|in|o(?:ut|ver)))|p(?:a(?:ce(?:-(?:around|between|evenly)|s)?|n)|e(?:cific-voice|ll-out))|quare(?:-button)?|t(?:a(?:ck(?:ed-fractions)?|rt(?:ColorStr)?|t(?:ic|us-bar))|ep-(?:end|start)|icky|op-(?:color|opacity)|r(?:etch|i(?:ct|ng)|oke(?:-(?:box|dash(?:array|offset)|miterlimit|opacity|width))?)|yl(?:eset|istic|e))|u(?:b(?:grid|pixel-antialiased|tract)|per|b)|w(?:-resize|a(?:sh|p))|ymbolic)|t(?:ab(?:le(?:-(?:c(?:aption|ell|olumn(?:-group)?)|footer-group|header-group|row(?:-group)?))?|ular-nums)|b-rl|ext(?:-(?:after-edge|b(?:efore-edge|ottom)|decoration(?:-color)?|emphasis(?:-color)?|indent|over-edge|s(?:hadow|ize(?:-adjust)?)|top|under-edge)|area|field)?|hi(?:ck|n)|itling-ca(?:ps|se)|o(?:p-outside|uch|p)|r(?:a(?:ditional|ns(?:form(?:-origin)?|parent))|iangle)|[bo])|u(?:ltra-(?:condens|expand)ed|n(?:der(?:-edge|line)?|icase|set)|p(?:left|percase|right)|se-(?:glyph-orientation|script))|v(?:er(?:so|tical(?:-(?:align|ideographic|lr|rl|text))?)|i(?:ew(?:-box|port-fill(?:-opacity)?)|sib(?:ility|le(?:Fill|Painted|Stroke)?)))|w(?:-resize|a(?:it|vy)|eight|hitespace|id(?:er|th)|ord(?:-spacing|s)|rap(?:-reverse)?)|x(?:-(?:fast|high|l(?:arge|o(?:ud|w))|s(?:low|mall|oft))|or|x-(?:large|small))|z(?:-index|ero|oom(?:-(?:in|out))?))
-                 | ({{counter_styles}})
+               ({{counter_styles}})|
+               (?:EndColorStr|a(?:b(?:ov|solut)e|ctive|dd(?:itive)?|fter-edge|l(?:ias|l-(?:petite-caps|s(?:croll|mall-caps))|pha(?:betic)?|ternate(?:-reverse|s)?|ways|l)|n(?:gle|notation|tialiased)|ttachment|uto(?:-pos|hiding-scrollbar)?|v(?:ailable|oid(?:-(?:column|page|region))?)|t)|b(?:a(?:ck(?:drop-filter|ground(?:-(?:color|image|position|size))?|wards)|lance|s(?:eline|is))|e(?:fore-edge|h(?:avior|ind)|low|vel)|i(?:cubic|di-override)|l(?:ink|ock(?:-(?:axis|end|line-height|start))?|ur)|o(?:ld(?:er)?|rder(?:-(?:bo(?:ttom(?:-(?:color|left-radius|r(?:ight-r)?adius|style|width))?|x)|col(?:lapse|or)|image(?:-(?:outset|repeat|s(?:li|our)ce|width))?|left(?:-(?:color|radius|style|width))?|r(?:adius|ight(?:-(?:color|radius|style|width))?)|s(?:pacing|tyle)|top(?:-(?:color|left-radius|r(?:ight-r)?adius|style|width))?|width))?|t(?:tom(?:-outside)?|h)|x-(?:decoration|image|shadow)|x)|r(?:eak-(?:all|word)|ightness)|u(?:llets|tt(?:on(?:-bevel)?)?))|c(?:a(?:p(?:italize|tion)|ret)|e(?:ll|nt(?:er(?:-(?:lef|righ)t)?|ral))|h(?:ar(?:acter-variant)?|eckbox)|ircle|jk-ideographic|l(?:ear|ip(?:-path)?|o(?:ne|se(?:-quote|st-(?:corner|side))))|o(?:de|l(?:-resize|lapse|or(?:-(?:burn|dodge|stop))?|umn(?:-(?:count|gap|r(?:everse|ule(?:-(?:color|width))?)|width)|s)?)|m(?:mon-ligatures|p(?:act|osite))|n(?:densed|sider-shifts|t(?:ain|e(?:nt(?:-box|s)?|xt(?:-menu|ual))|inuous|rast))|py|unt|ver)|r(?:isp(?:-e|E)dges|o(?:ss(?:hair)?|p))|ue-(?:after|before)|yclic)|d(?:a(?:rken|shed)|e(?:cimal|fault|nse|stination-(?:atop|in|o(?:ut|ver)))|i(?:agonal-fractions|fference|gits|s(?:abled|cretionary-ligatures|regard-shifts|tribute(?:-(?:all-lines|letter|space))?|c))|o(?:tted|uble(?:-circle)?|wn(?:lef|righ)t|t)|rop-shadow)|e(?:-resize|a(?:ch-line|s(?:e-(?:in(?:-out)?|out)|t-asian|e))|conomy|dges|l(?:ement|lips(?:is|e))|mbed|nd|venodd|w-resize|x(?:act|clu(?:de(?:-ruby)?|sion)|panded|t(?:ends|ra-(?:condens|expand)ed)))|f(?:a(?:llback|r(?:-(?:lef|righ)t|thest-(?:corner|side)?)|st(?:er)?)|i(?:l(?:l(?:-(?:available|box|opacity)|ed)|ter|l)|rst|t-content|xed)|l(?:at|ex(?:-(?:basis|direction|end|grow|s(?:hrink|tart)|wrap)|box)?|ip|o(?:od-color|w-root|w))|o(?:nt(?:-(?:s(?:ize(?:-adjust)?|tretch)|weight))?|rwards)|r(?:e(?:eze|quency)|om(?:-image)?)|ull-width)|g(?:e(?:neric-voice|o(?:metricPrecisio|rgia)n)|lyphs|r(?:a(?:bbing|dient|yscale|b)|id(?:-(?:column-gap|gap|height|row-gap))?|o(?:ove|w)))|h(?:a(?:n(?:ging|d)|rd-light)|e(?:ight|lp)|i(?:d(?:den|e)|gh(?:er|light)?|storical-(?:form|ligature)s)|orizontal(?:-tb)?|ue)|i(?:con|deograph(?:-(?:alpha|numeric|parenthesis|space)|ic)|mage|n(?:active|clude-ruby|finite|herit|itial|line(?:-(?:axis|b(?:lock|ox)|end|flex(?:box)?|grid|li(?:ne-height|st-item)|start|table))?|s(?:et|ide)|ter(?:-(?:character|ideograph|word)|sect)|vert|k)|solat(?:e-override|ion|e)|talic)|j(?:is(?:04|78|83|90)|ustify(?:-all)?)|k(?:annada|eep-all)|l(?:a(?:ndscape|rger?|st|yout)|e(?:ft(?:-side|wards)?|tter-spacing|vel)|i(?:g(?:atures|ht(?:e[nr]|ing-color))|n(?:e(?:-(?:edge|height|through)|ar(?:RGB|-gradient)?)|ing-nums|e)|st(?:-item|box|item))|o(?:cal|ose|ud|wer(?:case)?|w)|r-tb|tr|umin(?:ance|osity)|r)|m(?:a(?:in-size|n(?:datory|ipulation|ual)|r(?:gin(?:-(?:bo(?:ttom|x)|left|right|top))?|ker(?:-offset|s)?|quee)|sk(?:-(?:attachment|position|size))?|t(?:ch-(?:parent|source)|hematical)|x-(?:content|height|lines|size|width))|e(?:dium|nu(?:list(?:-(?:button|text(?:field)?))?)?|ssage-box)|i(?:ddle|n-(?:content|height|width)|ter|xed|x)|o(?:tion-(?:offset|rotation)|ve)|ultipl[ey])|n(?:-resize|arrower|e(?:-resize|arest-neighbor|sw-resize|ver|wspaper)|o(?:-(?:c(?:hange|l(?:ip|ose-quote)|o(?:mmon-ligatures|nte(?:nt|xtual)))|d(?:is(?:cretionary-ligatures|play)|rop)|historical-ligatures|open-quote|repeat|wrap)|n(?:zero|e)|rmal|t-allowed|wrap)|s-resize|um(?:bers|eric)|w(?:se)?-resize)|o(?:b(?:ject(?:-position|s)|lique)|ffset(?:-(?:after|before|end|start))?|ldstyle-nums|nce|p(?:acity|en(?:-quote)?|ti(?:mize(?:Legibility|Precision|Quality|Speed)|onal))|r(?:d(?:er|inal)|igin|naments)|ut(?:line(?:-(?:color|offset|width))?|s(?:et|ide))|ver(?:-edge|l(?:ay|ine))?)|p(?:a(?:dding(?:-(?:bo(?:ttom|x)|left|right|top))?|ge|int(?:ed)?|n(?:-(?:down|left|right|up|[xy])|ner)|use(?:-(?:after|before)|d))|e(?:rspective-origin|tite-caps)|ixelated|l(?:aintext|us-(?:dark|light)er)|o(?:inter|lygon|rtrait|sition)|r(?:e(?:-(?:line|wrap)|serve-3d)|o(?:g(?:id:DXImageTransform.Microsoft.(?:Alpha|Blur|Shadow|dropshadow|gradient)|ress(?:ive)?)|portional-(?:nums|width)|ximity)|e)|ush-button)|r(?:adi(?:al(?:-gradient)?|o)|e(?:ad-(?:only|write(?:-plaintext-only)?)|ct(?:angle|o)|gion|lative|move|p(?:eat(?:-[xy]|ing-(?:linear|radial)-gradient)?|laced)|set-size|ver(?:se|t))|i(?:dge|ght(?:-side|wards)?)|l-tb|o(?:und|w-(?:re(?:siz|vers)|severs)e|w)|tl|u(?:by(?:-(?:base(?:-container)?|container|text(?:-container)?))?|n(?:-in|ning))|l)|s(?:RGB|-resize|aturat(?:ion|e)|c(?:ale-down|r(?:een|oll(?:-(?:position|snap-(?:coordinate|destination))|bar(?:button-(?:down|left|right|up)|gripper-(?:horizont|vertic)al|t(?:humb-(?:horizont|vertic)|rack-(?:horizont|vertic))al)?)?))|e(?:-resize|archfield(?:-(?:cancel-butt|decorati|results-(?:butt|decorati))on)?|mi-(?:condens|expand)ed|p(?:arate|ia)|same)|h(?:ape-(?:image-threshold|margin|outside)|ow|rink)|i(?:deways(?:-(?:l(?:eft|r)|r(?:ight|l)))?|lent|mplified|ngle|ze)|l(?:ashed-zero|i(?:ce|de(?:r(?:-(?:horizont|vertic)|thumb-(?:horizont|vertic))al)?)|ow(?:er)?)|m(?:all(?:-cap(?:tion|s)|er)?|ooth)|nap|o(?:ft(?:-light)?|lid|urce-(?:atop|in|o(?:ut|ver)))|p(?:a(?:ce(?:-(?:around|between|evenly)|s)?|n)|e(?:cific-voice|ll-out))|quare(?:-button)?|t(?:a(?:ck(?:ed-fractions)?|rt(?:ColorStr)?|t(?:ic|us-bar))|ep-(?:end|start)|icky|op-(?:color|opacity)|r(?:etch|i(?:ct|ng)|oke(?:-(?:box|dash(?:array|offset)|miterlimit|opacity|width))?)|yl(?:eset|istic|e))|u(?:b(?:grid|pixel-antialiased|tract)|per|b)|w(?:-resize|a(?:sh|p))|ymbolic)|t(?:ab(?:le(?:-(?:c(?:aption|ell|olumn(?:-group)?)|footer-group|header-group|row(?:-group)?))?|ular-nums)|b-rl|ext(?:-(?:after-edge|b(?:efore-edge|ottom)|decoration(?:-color)?|emphasis(?:-color)?|indent|over-edge|s(?:hadow|ize(?:-adjust)?)|top|under-edge)|area|field)?|hi(?:ck|n)|itling-ca(?:ps|se)|o(?:p-outside|uch|p)|r(?:a(?:ditional|ns(?:form(?:-origin)?|parent))|iangle)|[bo])|u(?:ltra-(?:condens|expand)ed|n(?:der(?:-edge|line)?|icase|set)|p(?:left|percase|right)|se-(?:glyph-orientation|script))|v(?:er(?:so|tical(?:-(?:align|ideographic|lr|rl|text))?)|i(?:ew(?:-box|port-fill(?:-opacity)?)|sib(?:ility|le(?:Fill|Painted|Stroke)?)))|w(?:-resize|a(?:it|vy)|eight|hitespace|id(?:er|th)|ord(?:-spacing|s)|rap(?:-reverse)?)|x(?:-(?:fast|high|l(?:arge|o(?:ud|w))|s(?:low|mall|oft))|or|x-(?:large|small))|z(?:-index|ero|oom(?:-(?:in|out))?))
             )\b
       scope: support.constant.property-value.css
       # Generic Font Families: https://www.w3.org/TR/CSS2/fonts.html
@@ -797,6 +797,7 @@ contexts:
           - include: comma-delimiter
           - include: number-type
           - include: var-function
+          - include: calc-function
 
       # transform functions with comma separated <number> or <length> types
       # translate(), translate3d()
@@ -816,6 +817,7 @@ contexts:
           - include: length-type
           - include: number-type
           - include: var-function
+          - include: calc-function
 
       # transform functions with a single <number> or <length> type
       # translateX(), translateY()
@@ -833,6 +835,8 @@ contexts:
           - include: percentage-type
           - include: length-type
           - include: number-type
+          - include: var-function
+          - include: calc-function
 
       # transform functions with a single <angle> type
       # rotate(), skewX(), skewY(), rotateX(), rotateY(), rotateZ()
@@ -848,6 +852,8 @@ contexts:
           - match: '(?=\))'
             pop: true
           - include: angle-type
+          - include: var-function
+          - include: calc-function
 
       # transform functions with comma separated <angle> types
       # skew()
@@ -864,6 +870,8 @@ contexts:
             pop: true
           - include: comma-delimiter
           - include: angle-type
+          - include: var-function
+          - include: calc-function
 
       # transform functions with a single <length> type
       # translateZ(), perspective()
@@ -879,6 +887,8 @@ contexts:
           - match: '(?=\))'
             pop: true
           - include: length-type
+          - include: var-function
+          - include: calc-function
 
       # transform functions with a comma separated <number> or <angle> types
       # rotate3d()
@@ -896,6 +906,8 @@ contexts:
           - include: comma-delimiter
           - include: angle-type
           - include: number-type
+          - include: var-function
+          - include: calc-function
 
       # transform functions with a single <number> type
       # scaleX(), scaleY(), scaleZ()
@@ -912,6 +924,8 @@ contexts:
             pop: true
           - include: comma-delimiter
           - include: number-type
+          - include: var-function
+          - include: calc-function
 
       # Timing Functions
       # https://www.w3.org/TR/web-animations-1/#timing-functions
@@ -1448,6 +1462,8 @@ contexts:
           - include: comma-delimiter
           - include: percentage-type
           - include: number-type
+          - include: var-function
+          - include: calc-function
 
       # hsl(), hsla()
       # https://drafts.csswg.org/css-color/#the-hsl-notation
@@ -1468,6 +1484,8 @@ contexts:
           - include: angle-type
           - include: percentage-type
           - include: number-type
+          - include: var-function
+          - include: calc-function
 
       # gray() - Not yet implemented by browsers
       # https://drafts.csswg.org/css-color/#funcdef-gray
@@ -1485,6 +1503,8 @@ contexts:
           - include: comma-delimiter
           - include: percentage-type
           - include: number-type
+          - include: calc-function
+          - include: var-function
 
       # device-cmyk() - Not yet implemented by browsers
       # https://drafts.csswg.org/css-color/#funcdef-device-cmyk
