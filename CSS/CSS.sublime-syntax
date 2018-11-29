@@ -1189,6 +1189,7 @@ contexts:
     - meta_scope: meta.group.css
     - match: '(?=\))'
       set: function-notation-terminator
+    - include: comment-block
     - include: calc-function
     - include: var-function
     - include: numeric-values
