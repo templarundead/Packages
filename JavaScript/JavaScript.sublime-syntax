@@ -1,7 +1,7 @@
 %YAML 1.2
 ---
 # Derived from JavaScript Next: https://github.com/Benvie/JavaScriptNext.tmLanguage
-name: JavaScript
+name: JavaScript+
 file_extensions:
   - js
   - htc
@@ -944,6 +944,7 @@ contexts:
               pop: true
             - match: (?=\S)
               push: expression
+        - include: scope:text.html.basic
         - include: string-content
 
   string-content:
