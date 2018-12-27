@@ -427,6 +427,18 @@ contexts:
     - match: \!\s*important
       scope: keyword.other.important.css
 
+  animation-name:
+    - match: '\s*({{ident}})?'
+      captures:
+        1: entity.other.animation-name.css
+      push:
+        - match: '\s*(?:(,)|(?=[{;]))'
+          captures:
+            1: punctuation.definition.arbitrary-repetition.css
+          pop: true
+        - include: property-value-constants
+        - include: numeric-values
+
   rule-list-terminator:
     - match: '\s*(\})'
       captures:
@@ -444,10 +456,10 @@ contexts:
 
   rule-list-body:
     - include: comment-block
-    - match: "(?=[-a-z])"
+    - match: '(?=[-a-z])'
       push:
         - meta_scope: meta.property-name.css
-        - match: "$|(?![-a-z])"
+        - match: '$|(?![-a-z])'
           pop: true
         - include: vendor-prefix
         - match: '\b(var-)({{ident}})(?=\s)'
@@ -494,12 +506,13 @@ contexts:
             1: punctuation.terminator.rule.css
           pop: true
         - include: property-values
+        - include: animation-name
 
   selector:
     - match: '\s*(?=[:.*#a-zA-Z\[])'
       push:
         - meta_scope: meta.selector.css
-        - match: "(?=[/@{)])"
+        - match: '(?=[/@{)])'
           pop: true
           # Custom Elements: http://w3c.github.io/webcomponents/spec/custom/#custom-elements-core-concepts
         - match: '\b([a-z](?:{{custom_element_chars}})*-(?:{{custom_element_chars}})*)\b'
@@ -512,7 +525,7 @@ contexts:
           captures:
             1: punctuation.definition.entity.css
           # https://drafts.csswg.org/selectors-4/#id-selectors
-        - match: "(#){{ident}}"
+        - match: '(#){{ident}}'
           scope: entity.other.attribute-name.id.css
           captures:
             1: punctuation.definition.entity.css
