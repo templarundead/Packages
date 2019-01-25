@@ -1408,7 +1408,7 @@ contexts:
 
       # conic-gradient()
       # https://www.w3.org/TR/css-images-4/#conic-gradients
-    - match: '\b(conic-gradient)(?=\()'
+    - match: '\b((?:repeating-)?conic-gradient)(?=\()'
       scope: support.function.gradient.css
       push:
         - meta_scope: meta.function-call.css
