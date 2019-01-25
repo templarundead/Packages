@@ -427,18 +427,6 @@ contexts:
     - match: \!\s*important
       scope: keyword.other.important.css
 
-  animation-name:
-    - match: '\s*({{ident}})?'
-      captures:
-        1: entity.other.animation-name.css
-      push:
-        - match: '\s*(?:(,)|(?=[{;]))'
-          captures:
-            1: punctuation.definition.arbitrary-repetition.css
-          pop: true
-        - include: property-value-constants
-        - include: numeric-values
-
   rule-list-terminator:
     - match: '\s*(\})'
       captures:
@@ -492,10 +480,10 @@ contexts:
         # Popularity data taken from https://www.chromestatus.com/metrics/css/popularity
         - match: |-
             \b(?x)(
-                (?:a(?:dditive-symbols|l(?:ign(?:-(?:content|items|self)|ment-baseline)|[lt])|nimation(?:-(?:d(?:elay|irection|uration)|fill-mode|iteration-count|name|play-state|timing-function))?|ppearance|zimuth)|b(?:a(?:ck(?:drop-filter|face-visibility|ground(?:-(?:attachment|blend-mode|c(?:lip|o(?:lor|mposite))|image|origin|position(?:-[xy])?|repeat(?:-[xy])?|size))?)|seline-shift)|l(?:end-mod|ock-siz)e|o(?:rder(?:-(?:b(?:efore(?:-(?:color|style|width))?|lock-(?:end(?:-(?:color|style|width))?|start(?:-(?:color|style|width))?)|ottom(?:-(?:color|left-radius|right-radius|style|width))?)|col(?:lapse|or)|horizontal-spacing|i(?:mage(?:-(?:outset|repeat|s(?:li|our)ce|width))?|nline-(?:end(?:-(?:color|style|width))?|start(?:-(?:color|style|width))?))|left(?:-(?:color|style|width))?|r(?:adius|ight(?:-(?:color|style|width))?)|s(?:pacing|tyle)|top(?:-(?:color|left-radius|right-radius|style|width))?|vertical-spacing|width))?|ttom|x-(?:align|d(?:ecoration-break|irection)|flex(?:-group)?|lines|or(?:dinal-group|ient)|pack|reflect|s(?:hadow|izing)))|reak-(?:after|before|inside))|c(?:a(?:ption-side|ret-color)|l(?:ear|ip(?:-(?:path|rule))?)|o(?:l(?:or(?:-(?:interpolation(?:-filters)?|profile|rendering))?|umn(?:-(?:break-(?:after|before|inside)|count|fill|gap|rule(?:-(?:color|style|width))?|span|width)|s))|nt(?:ain|ent)|unter-(?:incremen|rese)t)|ross-fade|u(?:e-(?:after|before)|rsor|e))|d(?:ashboard-region|i(?:rection|splay)|ominant-baseline)|e(?:levation|mpty-cells)|f(?:allback|il(?:l-(?:opacity|rule)|ter|l)|l(?:ex(?:-(?:align|basis|direction|flow|grow|item-align|line-pack|negative|order|p(?:ack|ositive|referred-size)|shrink|wrap))?|o(?:at|od-(?:color|opacity)))|ont(?:-(?:display|f(?:amily|eature-settings)|kerning|language-override|optical-sizing|s(?:ize(?:-adjust)?|mooth(?:ing)?|t(?:retch|yle)|ynthesis)|varia(?:nt(?:-(?:alternates|caps|east-asian|ligatures|numeric|position))?|tion-settings)|weight))?)|g(?:ap|rid(?:-(?:a(?:rea|uto-(?:columns|flow|rows))|column(?:-(?:end|gap|start))?|gap|row(?:-(?:end|gap|start))?|template(?:-(?:area|column|row)s)?))?)|h(?:eight|yphens)|i(?:con|m(?:age-(?:orientation|re(?:ndering|solution))|e-mode)|n(?:itial-letter(?:-(?:align|wrap))?|line-size)|solation)|justify-(?:content|items|self)|kerning|l(?:e(?:ft|tter-spacing)|i(?:ghting-color|ne-(?:b(?:ox-contain|reak)|clamp|height)|st-style(?:-(?:image|position|type))?))|m(?:a(?:r(?:gin(?:-(?:b(?:lock-(?:end|start)|ottom)|inline-(?:end|start)|left|right|top))?|ker(?:-(?:end|mid|offset|start))?|quee-(?:direction|play-count|s(?:peed|tyle)))|sk(?:-(?:attachment|bo(?:rder(?:-(?:mode|outset|repeat|s(?:li|our)ce|width))?|x-image)|c(?:lip|omposite)|image|mode|origin|position(?:-[xy])?|repeat|size|type))?|x-(?:block-size|height|inline-size|width|zoom))|i(?:n-(?:block-size|height|inline-size|width|zoom)|x-blend-mode))|n(?:av-(?:down|index|left|right|up)|bsp-mode|egative)|o(?:bject-(?:fit|position)|ffset-(?:block-(?:end|start)|inline-(?:end|start))|pacity|r(?:der|ientation|phans)|utline(?:-(?:color|offset|style|width))?|verflow(?:-(?:s(?:crolling|tyle)|wrap|[xy]))?)|p(?:a(?:dding(?:-(?:b(?:lock-(?:end|start)|ottom)|inline-(?:end|start)|left|right|top))?|ge(?:-break-(?:after|before|inside))?|int-order|use(?:-(?:after|before))?|d)|erspective(?:-origin(?:-[xy])?)?|itch(?:-range)?|la(?:ce-(?:content|items|self)|y-during)|o(?:inter-events|sition)|refix)|quotes|r(?:ange|esize|i(?:chness|ght)|o(?:tate|w-gap)|tl-ordering|uby-(?:align|merge|overhang|position|span))|s(?:c(?:ale|roll-(?:behavior|snap-(?:align|coordinate|destination|points-[xy]|type(?:-[xy])?)))|hape-(?:image-threshold|margin|outside|rendering)|ize|p(?:ace-evenly|e(?:ak(?:-(?:as|header|numeral|punctuation))?|ech-rate))|rc|t(?:op-color|r(?:ess|oke(?:-(?:dash(?:array|offset)|line(?:cap|join)|miterlimit|opacity|width))?))|uffix|y(?:mbols|stem))|t(?:a(?:b(?:-size|le-layout)|p-highlight-color)|ext-(?:a(?:lign(?:-last)?|nchor)|combine-upright|decoration(?:-(?:color|line|s(?:kip|tyle)))?|emphasis(?:-(?:color|position|style))?|fill-color|height|indent|justify|o(?:rientation|verflow)|rendering|s(?:hadow|ize-adjust|troke(?:-(?:color|width))?)|transform|underline-position)|o(?:uch-(?:action|callout)|p)|rans(?:form(?:-(?:box|origin(?:-[xyz])?|style))?|ition(?:-(?:d(?:elay|uration)|property|timing-function))?|late))|u(?:nicode-(?:bidi|range)|ser-(?:drag|modify|select|zoom))|v(?:ertical-align|isibility|o(?:ice-family|lume))|w(?:hite-space|i(?:d(?:ows|th)|ll-change)|ord-(?:break|spacing|wrap)|riting-mode)|z(?:-index|oom))
+            (?:a(?:dditive-symbols|l(?:ign(?:-(?:content|items|self)|ment-baseline)|[lt])|nimation(?:-(?:d(?:elay|irection|uration)|fill-mode|iteration-count|name|play-state|timing-function))?|ppearance|spect-ratio|zimuth)|b(?:a(?:ck(?:drop-filter|face-visibility|ground(?:-(?:attachment|blend-mode|c(?:lip|o(?:lor|mposite))|image|origin|position(?:-[xy])?|repeat(?:-[xy])?|size))?)|seline-shift)|l(?:end-mod|ock-siz)e|o(?:rder(?:-(?:b(?:efore(?:-(?:color|style|width))?|lock-(?:end(?:-(?:color|style|width))?|start(?:-(?:color|style|width))?)|ottom(?:-(?:color|left-radius|right-radius|style|width))?)|col(?:lapse|or)|fit|horizontal-spacing|i(?:mage(?:-(?:outset|repeat|s(?:li|our)ce|width))?|nline-(?:end(?:-(?:color|style|width))?|start(?:-(?:color|style|width))?))|left(?:-(?:color|style|width))?|r(?:adius|ight(?:-(?:color|style|width))?)|s(?:pacing|tyle)|top(?:-(?:color|left-radius|right-radius|style|width))?|vertical-spacing|width))?|ttom|x-(?:align|d(?:ecoration-break|irection)|flex(?:-group)?|lines|or(?:dinal-group|ient)|pack|reflect|s(?:hadow|izing)))|reak-(?:after|before|inside)|uffered-rendering)|c(?:a(?:ption-side|ret-color)|l(?:ear|ip(?:-(?:path|rule))?)|o(?:l(?:or(?:-(?:interpolation(?:-filters)?|profile|rendering))?|umn(?:-(?:axis|break-(?:after|before|inside)|count|fill|gap|progression|rule(?:-(?:color|style|width))?|span|width)|s))|nt(?:ain|ent)|unter-(?:incremen|rese)t)|ross-fade|u(?:e-(?:after|before)|rsor(?:-visibility)?|e)|[xy])|d(?:ashboard-region|i(?:rection|splay)|ominant-baseline)|e(?:levation|mpty-cells)|f(?:allback|il(?:l-(?:opacity|rule)|ter|l)|l(?:ex(?:-(?:align|basis|direction|flow|grow|item-align|line-pack|negative|order|p(?:ack|ositive|referred-size)|shrink|wrap))?|o(?:at|od-(?:color|opacity)))|ont(?:-(?:display|f(?:amily|eature-settings)|kerning|language-override|optical-sizing|s(?:ize(?:-(?:adjust|delta))?|mooth(?:ing)?|t(?:retch|yle)|ynthesis)|varia(?:nt(?:-(?:alternates|caps|east-asian|ligatures|numeric|position))?|tion-settings)|weight))?)|g(?:ap|lyph-orientation-(?:horizont|vertic)al|rid(?:-(?:a(?:rea|uto-(?:columns|flow|rows))|column(?:-(?:end|gap|start))?|gap|row(?:-(?:end|gap|start))?|template(?:-(?:area|column|row)s)?))?)|h(?:anging-punctuation|eight|yphen(?:ate-(?:character|limit-(?:after|before|lines))|s))|i(?:con|m(?:age-(?:orientation|re(?:ndering|solution))|e-mode)|n(?:itial-letter(?:-(?:align|wrap))?|line-size|set)|solation)|justify-(?:content|items|self)|kerning|l(?:e(?:ft|tter-spacing)|i(?:ghting-color|ne-(?:b(?:ox-contain|reak)|clamp|grid|height|snap)|st-style(?:-(?:image|position|type))?)|ocale)|m(?:a(?:r(?:gin(?:-(?:after-collapse|b(?:efore-collapse|lock-(?:end|start)|ottom(?:-collapse)?)|collapse|inline-(?:end|start)|left|right|top(?:-collapse)?))?|ker(?:-(?:end|mid|offset|start))?|quee(?:-(?:direction|increment|play-count|repetition|s(?:peed|tyle)))?)|sk(?:-(?:attachment|bo(?:rder(?:-(?:mode|outset|repeat|s(?:li|our)ce|width))?|x-image(?:-(?:outset|repeat|s(?:li|our)ce|width))?)|c(?:lip|omposite)|image|mode|origin|position(?:-[xy])?|repeat(?:-[xy])?|s(?:iz|ource-typ)e|type))?|x-(?:block-size|height|inline-size|width|zoom))|i(?:n-(?:block-size|height|inline-size|width|zoom)|x-blend-mode))|n(?:av-(?:down|index|left|right|up)|bsp-mode|egative)|o(?:bject-(?:fit|position)|ffset-(?:block-(?:end|start)|inline-(?:end|start))|pacity|r(?:der|ientation|phans)|utline(?:-(?:color|offset|style|width))?|verflow(?:-(?:s(?:crolling|tyle)|wrap|[xy]))?)|p(?:a(?:dding(?:-(?:b(?:lock-(?:end|start)|ottom)|inline-(?:end|start)|left|right|top))?|ge(?:-break-(?:after|before|inside))?|int-order|use(?:-(?:after|before))?|d)|erspective(?:-origin(?:-[xy])?)?|itch(?:-range)?|la(?:ce-(?:content|items|self)|y-during)|o(?:inter-events|sition)|r(?:efix|int-color-adjust))|quotes|r(?:ange|esize|i(?:chness|ght)|o(?:tate|w-gap)|tl-ordering|uby-(?:align|merge|overhang|position|span)|[xy])|s(?:c(?:ale|roll-(?:behavior|padding(?:-(?:bottom|left|right|top))?|snap-(?:align|coordinate|destination|margin(?:-(?:bottom|left|right|top))?|points-[xy]|type(?:-[xy])?)))|hape-(?:image-threshold|margin|outside|rendering)|ize|p(?:ace-evenly|e(?:ak(?:-(?:as|header|numeral|punctuation))?|ech-rate))|rc|t(?:op-(?:color|opacity)|r(?:ess|oke(?:-(?:color|dash(?:array|offset)|line(?:cap|join)|miterlimit|opacity|width))?))|u(?:ffix|pported-color-schemes)|y(?:mbols|stem))|t(?:a(?:b(?:-size|le-layout)|p-highlight-color)|ext-(?:a(?:lign(?:-last)?|nchor)|combine(?:-upright)?|decoration(?:-(?:color|line|s(?:kip|tyle)|thickness)|s-in-effect)?|emphasis(?:-(?:color|position|style))?|fill-color|height|indent|justify|o(?:rientation|verflow)|rendering|s(?:ecurity|hadow|ize-adjust|troke(?:-(?:color|width))?)|transform|underline-(?:offset|position)|zoom)|o(?:uch-(?:action|callout)|p)|rans(?:form(?:-(?:box|origin(?:-[xyz])?|style))?|ition(?:-(?:d(?:elay|uration)|property|timing-function))?|late))|u(?:nicode-(?:bidi|range)|ser-(?:drag|modify|select|zoom))|v(?:e(?:ctor-effect|rtical-align)|isibility|o(?:ice-family|lume))|w(?:hite-space|i(?:d(?:ows|th)|ll-change)|ord-(?:break|spacing|wrap)|riting-mode)|z(?:-index|oom)|r)
             )\b
           scope: support.type.property-name.css
-    - match: (:)([ \t]*)
+    - match: (:)([ \t]*) 
       captures:
         1: punctuation.separator.key-value.css
         2: meta.property-value.css
@@ -506,7 +494,6 @@ contexts:
             1: punctuation.terminator.rule.css
           pop: true
         - include: property-values
-        - include: animation-name
 
   selector:
     - match: '\s*(?=[:.*#a-zA-Z\[])'
@@ -1412,6 +1399,32 @@ contexts:
           - include: percentage-type
           - include: length-type
           - match: '\b(at|circle|ellipse)\b'
+            scope: keyword.other.css
+          - match: |-
+              (?x)\b(
+                 (?:c(?:losest-(?:corner|side)|enter)|farthest-(?:corner|side)|(?:righ|lef)t|bottom|top)
+              )\b
+            scope: support.constant.property-value.css
+
+      # conic-gradient()
+      # https://www.w3.org/TR/css-images-4/#conic-gradients
+    - match: '\b(conic-gradient)(?=\()'
+      scope: support.function.gradient.css
+      push:
+        - meta_scope: meta.function-call.css
+        - include: function-notation-terminator
+        - match: '\('
+          scope: punctuation.definition.group.begin.css
+          push:
+          - meta_scope: meta.group.css
+          - match: '(?=\))'
+            pop: true
+          - include: angle-type           
+          - include: comma-delimiter
+          - include: color-values
+          - include: percentage-type
+          - include: length-type
+          - match: '\b(at|from)\b'
             scope: keyword.other.css
           - match: |-
               (?x)\b(
