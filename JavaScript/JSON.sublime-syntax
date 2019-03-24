@@ -99,7 +99,7 @@ contexts:
         - match: '"'
           scope: punctuation.definition.string.begin.json
           push:
-            - clear_scopes: 1
+          # - clear_scopes: 1
             - meta_scope: meta.mapping.key.json string.quoted.double.json
             - meta_include_prototype: false
             - include: inside-string
@@ -112,7 +112,7 @@ contexts:
               pop: true
             - match: (?=\S)
               set:
-                - clear_scopes: 1
+              # - clear_scopes: 1
                 - meta_scope: meta.mapping.value.json
                 - include: value
                 - match: ''
