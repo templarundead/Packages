@@ -204,13 +204,13 @@ export default$
 
 let x = import.meta;
 //      ^^^^^^^^^^^ - meta.import
-//      ^^^^^^ variable.language.import
+//      ^^^^^^ keyword.import
 //            ^ punctuation.accessor
 //             ^^^^ variable.language.import
 
     import.meta;
 //  ^^^^^^^^^^^ - meta.import
-//  ^^^^^^ variable.language.import
+//  ^^^^^^ keyword.import
 //        ^ punctuation.accessor
 //         ^^^^ variable.language.import
 
@@ -219,6 +219,14 @@ let x = import.meta;
 //  ^^^^^ - meta.import
 //  ^ punctuation.accessor
 //   ^^^^ variable.language.import
+
+    import('foo');
+//  ^^^^^^ keyword.import
+//        ^^^^^^^ meta.group
+
+    import
+    ('foo');
+//  ^^^^^^^ meta.group
 
 // This object literal is technically broken since foo() does not have a
 // method body, but we include it here to ensure that highlighting is not
@@ -1843,10 +1851,12 @@ function yy (a, b) {
 //       ^^^ meta.property.object
 
     +123;
-//  ^^^^ constant.numeric.decimal - keyword
+//  ^ keyword.operator.arithmetic
+//   ^^^ constant.numeric.decimal - keyword
 
     -123;
-//  ^^^^ constant.numeric.decimal - keyword
+//  ^ keyword.operator.arithmetic
+//   ^^^ constant.numeric.decimal - keyword
 
     + 123;
 //  ^ keyword.operator.arithmetic
@@ -1942,3 +1952,29 @@ debugger;
 debugger
 []
 // <- meta.sequence
+
+    a ?? b;
+//    ^^ keyword.operator.logical
+
+    a.?b.?c;
+//   ^^ punctuation.accessor
+//     ^ meta.property.object
+//      ^^ punctuation.accessor
+//        ^ meta.property.object
+
+    a.?[propName];
+//   ^^^^^^^^^^^^ meta.brackets
+//   ^^ punctuation.accessor
+//     ^ punctuation.section.brackets.begin
+
+    a.?();
+//  ^^^^^ meta.function-call
+//  ^ variable.function
+//   ^^^^ meta.group
+//   ^^ punctuation.accessor
+//     ^ punctuation.section.group.begin
+
+    a.b.?();
+//  ^^^^^^^ meta.function-call.method
+//    ^ variable.function
+//     
