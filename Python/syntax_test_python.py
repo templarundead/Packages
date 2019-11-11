@@ -109,9 +109,9 @@ identifier
 #^^^^^^^^^ meta.qualified-name meta.generic-name
 
 class
-#^^^^ storage.type.class
+#^^^^ storage.type.class keyword.declaration.class.python
 def
-#^^ storage.type.function
+#^^ storage.type.function keyword.declaration.function.python
 
 # async and await are still recognized as valid identifiers unless in an "async" block
 async
@@ -237,13 +237,13 @@ def _():
 
     c = lambda: pass
 #       ^^^^^^^^^^^^ meta.function.inline
-#       ^^^^^^ storage.type.function.inline
+#       ^^^^^^ storage.type.function.inline keyword.declaration.function.inline.python
 #             ^ punctuation.section.function.begin
 #               ^^^^ invalid.illegal.name.python
 
     _(lambda x, y: 10)
 #     ^^^^^^^^^^^^^^^ meta.function.inline
-#     ^^^^^^ storage.type.function.inline
+#     ^^^^^^ keyword.declaration.function.inline.python
 #           ^^^^^ meta.function.inline.parameters
 #            ^ variable.parameter
 #             ^ punctuation.separator.parameters
@@ -272,7 +272,7 @@ def _():
 #                            ^ invalid.illegal.expected-parameter.python
 
     lambda x
-#   ^^^^^^ storage.type.function.inline
+#   ^^^^^^ storage.type.function.inline keyword.declaration.function.inline.python
 
     lambda (x, y): 0
 #   ^^^^^^^^^^^^^^^^ meta.function.inline
@@ -877,7 +877,7 @@ class Class():
     @deco \
 
     def f(): pass
-#   ^^^ storage.type.function - meta.decorator
+#   ^^^ storage.type.function keyword.declaration.function.python - meta.decorator
 
 
 class AClass:
@@ -993,6 +993,18 @@ mapping_or_set = {
 complex_mapping = {(): "value"}
 #                 ^^^ meta.mapping-or-set.python
 #                    ^^^^^^^^^^ meta.mapping - meta.mapping-or-set
+
+more_complex_mapping = {**{1: 1}, 2: 2}
+#                      ^ meta.mapping.python
+#                               ^ meta.mapping.python punctuation.separator.mapping.python
+#                                  ^ meta.mapping.python punctuation.separator.mapping.key-value.python
+
+more_complex_set = {
+#                  ^ meta.mapping-or-set.python
+    *{1}, 2: 2}
+#   ^ meta.set.python
+#       ^ meta.set.python punctuation.separator.set.python
+#          ^ meta.set.python invalid.illegal.colon-inside-set.python
 
 generator = (i for i in range(100))
 #           ^^^^^^^^^^^^^^^^^^^^^^^ meta.group
@@ -1214,39 +1226,39 @@ floating = 0.1 - .1 * 10e-20 - 0.0e2 % 2.
 
 binary = 0b1010011 | 0b0110110L
 #        ^^^^^^^^^ constant.numeric.integer.binary.python
-#        ^^ punctuation.definition.numeric.binary.python
+#        ^^ punctuation.definition.numeric.base.python
 #                    ^^^^^^^^^^ constant.numeric.integer.binary.python
-#                    ^^ punctuation.definition.numeric.binary.python
+#                    ^^ punctuation.definition.numeric.base.python
 #                             ^ storage.type.numeric.python
 
 octal = 0o755 ^ 0o644L
 #       ^^^^^ constant.numeric.integer.octal.python
-#       ^^ punctuation.definition.numeric.octal.python
+#       ^^ punctuation.definition.numeric.base.python
 #                    ^ storage.type.numeric.python
 #               ^^^^^^ constant.numeric.integer.octal.python
-#               ^^ punctuation.definition.integer.octal.python
+#               ^^ punctuation.definition.numeric.base.python
 
 old_style_octal = 010 + 007 - 012345670L
 #                 ^^^ constant.numeric.integer.octal.python
-#                 ^ punctuation.definition.numeric.octal.python
+#                 ^ punctuation.definition.numeric.base.python
 #                       ^^^ constant.numeric.integer.octal.python
-#                       ^ punctuation.definition.numeric.octal.python
+#                       ^ punctuation.definition.numeric.base.python
 #                             ^^^^^^^^^^ constant.numeric.integer.octal.python
-#                             ^ punctuation.definition.integer.octal.python
+#                             ^ punctuation.definition.numeric.base.python
 #                                      ^ storage.type.numeric.python
 
 hexadecimal = 0x100af - 0XDEADF00L
 #             ^^^^^^^ constant.numeric.integer.hexadecimal.python
-#             ^^ punctuation.definition.numeric.hexadecimal.python
+#             ^^ punctuation.definition.numeric.base.python
 #                       ^^^^^^^^^^ constant.numeric.integer.hexadecimal.python
-#                       ^^ punctuation.definition.numeric.hexadecimal.python
+#                       ^^ punctuation.definition.numeric.base.python
 #                                ^ storage.type.numeric.python
 
 unintuitive = 0B101 + 0O101 + 10l
 #             ^^^^^ constant.numeric.integer.binary.python
-#             ^^ punctuation.definition.numeric.binary.python
+#             ^^ punctuation.definition.numeric.base.python
 #                     ^^^^^ constant.numeric.integer.octal.python
-#                     ^^ punctuation.definition.numeric.octal.python
+#                     ^^ punctuation.definition.numeric.base.python
 #                             ^^^ constant.numeric.integer.decimal.python
 #                               ^ storage.type.numeric.python
 
@@ -1271,11 +1283,11 @@ very_complex = 23_2.2e2_0J + 2_1j
 
 addr = 0xCAFE_F00D
 #      ^^^^^^^^^^^ constant.numeric
-#      ^^ punctuation.definition.numeric.hexadecimal.python
+#      ^^ punctuation.definition.numeric.base.python
 
 flags = 0b_0011_1111_0100_1110 | 0b_1 & 0b_0_
 #       ^^^^^^^^^^^^^^^^^^^^^^ constant.numeric
-#       ^^ punctuation.definition.numeric.binary.python
+#       ^^ punctuation.definition.numeric.base.python
 #                                ^^^^ constant.numeric.integer.binary.python
 #                                           ^ - constant
 
