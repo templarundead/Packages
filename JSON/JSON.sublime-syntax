@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-name: JSON
+name: JSON+
 file_extensions:
   - json
   - sublime-settings
