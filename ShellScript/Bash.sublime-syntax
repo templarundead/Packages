@@ -68,9 +68,8 @@ contexts:
   comment:
     - match: (?:^\s*|\s+)(\#)
       captures:
-        1:
-          comment.line.number-sign.shell
-          punctuation.definition.comment.begin.shell
+        1: comment.line.number-sign.shell
+        2: punctuation.definition.comment.begin.shell
       push:
         - meta_content_scope: comment.line.number-sign.shell
         # NOTE: The reason for consuming the newline character is as follows.
