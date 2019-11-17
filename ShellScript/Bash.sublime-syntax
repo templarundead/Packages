@@ -1334,6 +1334,11 @@ contexts:
     - include: string-quoted-single
     - include: string-ansi-c
     - include: string-locale
+    - include: path-separator
+
+  path-separator:
+    - match: \/
+      scope: punctuation.definition.path-separator.shell
 
   # nothing is escaped in a singly-quoted string!
   string-quoted-single:
